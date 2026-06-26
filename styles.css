@@ -491,7 +491,7 @@ h1 span {
 .subtitle {
   width: min(560px, 94%);
   margin: 22px auto 0;
-  color: var(--ink-soft);
+ color: purple;
   line-height: 1.75;
   font-size: 1.03rem;
 }
@@ -1814,4 +1814,55 @@ h1 span {
   .highlight-big-card {
     min-height: auto;
   }
+}
+
+/* Extra mobile tweaks: make hero characters/astronaut responsive */
+@media (max-width: 480px) {
+  .hero {
+    padding-bottom: 180px;
+  }
+
+  .character-left,
+  .character-right {
+    width: min(180px, 36vw);
+    opacity: 0.9;
+    bottom: 6%;
+    transform: none;
+    filter: invert(1);
+    mix-blend-mode: multiply;
+    animation: gentle-float 5.4s ease-in-out infinite;
+  }
+
+  .character-left {
+    left: 3%;
+  }
+
+  .character-right {
+    right: 3%;
+  }
+
+  /* Keep hero copy readable and prevent overlap */
+  .hero-copy {
+    padding: 0 12px;
+    width: 100%;
+  }
+
+  /* Slightly reduce orbit/planet artwork so it doesn't collide */
+  .orbit-one { height: 240px; }
+  .orbit-two { height: 170px; }
+}
+
+/* On very small screens hide decorative characters to avoid crowding */
+@media (max-width: 360px) {
+  .character-left,
+  .character-right {
+    display: none;
+  }
+
+  .hero {
+    padding-bottom: 140px;
+  }
+
+  .h1,
+  h1 { font-size: clamp(2.1rem, 6.5vw, 3.2rem); }
 }
